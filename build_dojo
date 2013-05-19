@@ -1,0 +1,10 @@
+#!/bin/sh 
+
+set -x
+set -e
+
+node dojo/dojo.js load=build --profile prof.js
+java -jar util/closureCompiler/compiler.jar --js=dist/dojo/dojo.js --js_output_file=dojo.min.js
+
+# cp dojo.min.js ../dojomonk.com/assets/dojo.min.js 
+# cp dojo.min.js ../dojomonk.com/_site/assets/dojo.min.js 
